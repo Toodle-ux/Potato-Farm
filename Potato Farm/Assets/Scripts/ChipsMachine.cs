@@ -14,7 +14,7 @@ public class ChipsMachine : MonoBehaviour
     private GlobalController global;
 
     // 用于储存传过来的土豆
-    private GameObject potato;
+    [SerializeField] private GameObject potato;
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +26,14 @@ public class ChipsMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 如果机器里没有土豆，把自己的transform发送给global controller的GetPotato方法（去要一颗土豆），并且把状态更新为有土豆了
+        // 如果机器里没有土豆，把自己的transform发送给global controller的GetPotato方法（去要一颗土豆）
         if (!hasPotato)
         {
-            global.GetPotato(transform);
-            hasPotato = true;
+            // 如果土豆列表里有土豆的话，那么把机器状态更新为有土豆，否则一直是没有土豆，反复向土豆列表索要土豆
+            if (global.GetPotato(transform))
+            {
+                hasPotato = true;
+            }
         }
 
         // 计时器，如果倒计时大于0，那么就减去两帧之间的时间
@@ -45,6 +48,8 @@ public class ChipsMachine : MonoBehaviour
             {
                 potato.SetActive(false);
                 hasPotato = false;
+
+                potato = null;
             }
         }
     }
@@ -53,6 +58,8 @@ public class ChipsMachine : MonoBehaviour
     public void PotatoArrived(GameObject potato)
     { 
         this.potato = potato;
-        timer = 10.0f;
+        timer = 2.0f;
+
+        print(potato.name);
     }
 }

@@ -20,7 +20,7 @@ public class Potato : MonoBehaviour
     // 土豆的移动目标
     private Vector2 target;
 
-    private bool isArrived = true;
+    private bool isArrived = false;
 
     // 用来接传过来的machine
     private ChipsMachine machine;
@@ -58,10 +58,12 @@ public class Potato : MonoBehaviour
         if (Vector2.Distance(transform.position, target) < 0.1f && !isArrived)
         {
             isArrived = true;
+            print(currentState);
 
             // 如果土豆是在去机器的路上这一状态下，那么把自己传输给机器的PotatoArrived方法
             if (currentState == State.run)
             {
+                print(machine.name);
                 machine.PotatoArrived(gameObject);
             }
             else if(currentState == State.walk)
@@ -89,5 +91,6 @@ public class Potato : MonoBehaviour
 
         // 传过来的machine时Transform类，从中调取ChipsMachine并且赋值给Potato类中的machine
         this.machine = machine.GetComponent<ChipsMachine>();
+        // print(machine.name);
     }
 }
