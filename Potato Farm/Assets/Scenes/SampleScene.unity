@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 367240380}
   - component: {fileID: 367240379}
   - component: {fileID: 367240378}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Grow Potato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,6 +495,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 32
+  canvas: {fileID: 0}
 --- !u!212 &367240381
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -571,7 +575,7 @@ GameObject:
   - component: {fileID: 393954698}
   - component: {fileID: 393954700}
   - component: {fileID: 393954699}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fertilizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +799,7 @@ GameObject:
   - component: {fileID: 757424627}
   - component: {fileID: 757424626}
   - component: {fileID: 757424625}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +917,7 @@ GameObject:
   - component: {fileID: 802604925}
   - component: {fileID: 802604927}
   - component: {fileID: 802604926}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,7 +995,7 @@ GameObject:
   - component: {fileID: 987045825}
   - component: {fileID: 987045827}
   - component: {fileID: 987045826}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1225,7 @@ GameObject:
   - component: {fileID: 1303440862}
   - component: {fileID: 1303440864}
   - component: {fileID: 1303440863}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fertilizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1296,7 +1300,7 @@ GameObject:
   - component: {fileID: 1504960114}
   - component: {fileID: 1504960113}
   - component: {fileID: 1504960112}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1653,7 +1657,7 @@ GameObject:
   - component: {fileID: 1865841682}
   - component: {fileID: 1865841684}
   - component: {fileID: 1865841683}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fertilizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1869,13 +1873,13 @@ GameObject:
   - component: {fileID: 2083408561}
   - component: {fileID: 2083408560}
   - component: {fileID: 2083408559}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2083408558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2063,8 +2067,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7848827659782626460, guid: 68ece5605ddcf4609885299af6744367,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848827659782626460, guid: 68ece5605ddcf4609885299af6744367,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848827659782626460, guid: 68ece5605ddcf4609885299af6744367,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.73
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 7848827659782626460, guid: 68ece5605ddcf4609885299af6744367,
         type: 3}
@@ -2111,5 +2125,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7848827659782626464, guid: 68ece5605ddcf4609885299af6744367,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848827659782626464, guid: 68ece5605ddcf4609885299af6744367,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848827659782626464, guid: 68ece5605ddcf4609885299af6744367,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68ece5605ddcf4609885299af6744367, type: 3}
+--- !u!1 &7848827657909300609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7848827659782626459, guid: 68ece5605ddcf4609885299af6744367,
+    type: 3}
+  m_PrefabInstance: {fileID: 7848827657909300608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7848827657909300610
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7848827657909300609}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 211bc7ba2c08f40229e45df1881dd8cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
