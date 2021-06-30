@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlantButton : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private GameObject potatoPrefab;
+    [SerializeField] private GameObject growingPotato;
     [SerializeField] private Transform potatoGroup;
 
     private GlobalController global;
@@ -37,13 +37,13 @@ public class PlantButton : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     // 生成一个土豆prefab，放在potatoGroup这个空物体下
-                    GameObject temp = Instantiate(potatoPrefab, potatoGroup);
+                    GameObject temp = Instantiate(growingPotato);
 
                     // 把新的土豆的位置设置在土豆种植点
                     temp.transform.position = transform.position;
 
                     // 把新的土豆增加到土豆列表里
-                    global.potatoes.Add(temp);
+                    // global.potatoes.Add(temp);
                 }
             }
         }
