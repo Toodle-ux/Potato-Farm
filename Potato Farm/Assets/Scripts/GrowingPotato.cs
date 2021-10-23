@@ -21,11 +21,14 @@ public class GrowingPotato : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameObject potatoPrefab;
     [SerializeField] private GameObject electronicPrefab;
+    [SerializeField] private GameObject poisonPrefab;
 
     // 以下将在start中寻找
     private GameObject canvas;
     private Transform potatoGroup;
     private GlobalController global;
+
+    private string slotName;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +68,30 @@ public class GrowingPotato : MonoBehaviour
         // 如果时间到了，根据肥料的组合生成一个土豆
         else
         {
-            if (slots[0].sprite == heart)
+            
+
+            for (int i = 0; i < slots.Length; i++)
+            {
+                
+
+                if (slots[i].sprite != null)
+                {
+                    slotName += slots[i].sprite.name;
+                }
+                else
+                {
+                    slotName += "0";
+                }
+
+                print(slotName);
+            }
+
+
+            GameObject temp = Instantiate(SpawnPotato(slotName), potatoGroup);
+            temp.transform.position = transform.position;
+            global.potatoes.Add(temp);
+
+            /*if (slots[0].sprite == heart)
             {
                 GameObject temp = Instantiate(electronicPrefab, potatoGroup);
                 temp.transform.position = transform.position;
@@ -76,7 +102,7 @@ public class GrowingPotato : MonoBehaviour
                 GameObject temp = Instantiate(potatoPrefab, potatoGroup);
                 temp.transform.position = transform.position;
                 global.potatoes.Add(temp);
-            }
+            }*/
 
             // 把生长中的土豆关掉
             gameObject.SetActive(false);
@@ -105,4 +131,21 @@ public class GrowingPotato : MonoBehaviour
         timer = 2f;
 
     }
+
+    private GameObject SpawnPotato(string slotName)
+    {
+        if (slotName.Contains("Heart") && slotName.Contains("Sun"))
+        {
+            return poisonPrefab;
+        }
+        else if (slotName.Contains("Heart"))
+        {
+            return electronicPrefab;
+        }
+        else
+        {
+            return potatoPrefab;
+        }
+    }
 }
+

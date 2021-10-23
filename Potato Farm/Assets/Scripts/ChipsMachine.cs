@@ -59,7 +59,5 @@ public class ChipsMachine : MonoBehaviour
     { 
         this.potato = potato;
         timer = 2.0f;
-
-        print(potato.name);
     }
 }
